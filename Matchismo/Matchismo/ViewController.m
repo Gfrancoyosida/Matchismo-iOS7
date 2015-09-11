@@ -41,18 +41,18 @@
         [sender setBackgroundImage:[UIImage imageNamed:@"cardback"]
                           forState:UIControlStateNormal];
         [sender setTitle:@"" forState:UIControlStateNormal];
+        self.flipsCounter++;
     } else {
-        PlayingCard *playingCard = [self playingCard];
-        if (!playingCard) {
-            self.playingCardDeck = nil;
-            playingCard = [self playingCard];
+        Card *playingCard = [self playingCard];
+        if (playingCard) {
+            [sender setBackgroundImage:[UIImage imageNamed:@"cardfront"]
+                              forState:UIControlStateNormal];
+            [sender setTitle:playingCard.contents forState:UIControlStateNormal];
         }
-        [sender setBackgroundImage:[UIImage imageNamed:@"cardfront"]
-                          forState:UIControlStateNormal];
-        [sender setTitle:playingCard.contents forState:UIControlStateNormal];
+        self.flipsCounter++;
     }
     
-    self.flipsCounter++;
+
 }
 
 - (PlayingCard *) playingCard {

@@ -12,6 +12,25 @@
 
 @synthesize suit = _suit;
 
+
+//overriding superclass method
+
+- (int) match:(NSArray *)otherCards {
+    int score = 0;
+    
+    if ([otherCards count] == 1) {
+        PlayingCard *card = [otherCards firstObject];
+        
+        if (self.rank == card.rank) {
+            score = 4;
+        } else if ([self.suit isEqualToString:card.suit]) {
+            score = 1;
+        }
+    }
+    
+    return score;
+}
+
 - (void) setSuit:(NSString *)suit {
     if ([[PlayingCard validSuits] containsObject:suit]) {
         _suit = suit;

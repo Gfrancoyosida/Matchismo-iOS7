@@ -22,6 +22,7 @@
 
 @implementation ViewController
 
+#pragma mark - Custom accesors
 
 - (CardMatchingGame *) game {
     if (!_game) {
@@ -35,6 +36,8 @@
     return [[PlayingCardDeck alloc] init];
 }
 
+#pragma mark - Action methods
+
 - (IBAction)touchCardButton:(UIButton *)sender {
     int index = [self.cardButtons indexOfObject:sender];
     
@@ -42,6 +45,8 @@
     [self updateUI];
 
 }
+
+#pragma mark - Private methods
 
 - (void) updateUI {
     for (UIButton *cardButton in self.cardButtons) {

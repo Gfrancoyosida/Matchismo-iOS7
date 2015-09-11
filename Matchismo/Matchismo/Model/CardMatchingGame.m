@@ -23,7 +23,7 @@
     self = [super init];
     
     if (self) {
-        for (int i = count; i < count; i++) {
+        for (int i = 0; i < count; i++) {
             Card *card = [deck drawRandomCard];
             if (card) {
                 [self.cards addObject:card];

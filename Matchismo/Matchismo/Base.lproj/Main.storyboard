@@ -18,7 +18,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dxj-8l-dIH">
                                 <rect key="frame" x="116" y="186" width="89" height="108"/>
-                                <state key="normal" title="A♠︎" backgroundImage="cardfront"/>
+                                <state key="normal" backgroundImage="cardback"/>
                                 <connections>
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qsK-Ti-UP0"/>
                                 </connections>
@@ -43,6 +43,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cardfront" width="64" height="96"/>
+        <image name="cardback" width="64" height="96"/>
     </resources>
 </document>

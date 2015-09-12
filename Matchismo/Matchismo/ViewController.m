@@ -26,7 +26,7 @@
 
 - (CardMatchingGame *) game {
     if (!_game) {
-        _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck:[self createDeck]];
+        _game = [self createMatchingGame];
     }
     
     return _game;
@@ -34,6 +34,11 @@
 
 - (PlayingCardDeck *) createDeck {
     return [[PlayingCardDeck alloc] init];
+}
+
+- (CardMatchingGame *) createMatchingGame {
+    return [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
+                                             usingDeck:[self createDeck]];
 }
 
 #pragma mark - Action methods
@@ -44,6 +49,11 @@
     [self.game chooseCardAtIndex:index];
     [self updateUI];
 
+}
+
+- (IBAction)resetGameButton:(UIButton *)sender {
+    self.game = [self createMatchingGame];
+    [self updateUI];
 }
 
 #pragma mark - Private methods

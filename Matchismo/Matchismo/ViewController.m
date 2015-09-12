@@ -17,6 +17,8 @@
 @property (strong, nonatomic) CardMatchingGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *matchModeSegmentedControl;
+
 
 @end
 
@@ -46,6 +48,7 @@
 - (IBAction)touchCardButton:(UIButton *)sender {
     int index = [self.cardButtons indexOfObject:sender];
     
+    self.matchModeSegmentedControl.enabled = false;
     [self.game chooseCardAtIndex:index];
     [self updateUI];
 
@@ -53,8 +56,18 @@
 
 - (IBAction)resetGameButton:(UIButton *)sender {
     self.game = [self createMatchingGame];
+    self.matchModeSegmentedControl.enabled = true;
     [self updateUI];
 }
+
+- (IBAction)matchModeSegmentedControl:(UISegmentedControl *)sender {
+    if (sender.selectedSegmentIndex == 0) {
+        NSLog(@"2 card mode");
+    } else if (sender.selectedSegmentIndex == 1) {
+        NSLog(@"3 card mode");
+    }
+}
+
 
 #pragma mark - Private methods
 

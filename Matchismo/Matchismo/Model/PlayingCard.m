@@ -26,6 +26,15 @@
         } else if ([self.suit isEqualToString:card.suit]) {
             score = 1;
         }
+    } else {
+        for (int i = 0; i < 2; i++) {
+            PlayingCard *card = otherCards[i];
+            if (self.rank == card.rank) {
+                score += 4;
+            } else if ([self.suit isEqualToString:card.suit]) {
+                score += 1;
+            }
+        }
     }
     
     return score;
